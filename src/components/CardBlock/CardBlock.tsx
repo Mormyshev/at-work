@@ -27,12 +27,12 @@ const CardBlock = ({ itemCard }: { itemCard: User }) => {
             ) : (
                 <img src={avatar} alt="Аватар" className='w-[130px] h-[120px] sm:w-[112px] sm:h-[112px] rounded-[8px] object-cover object-center flex-shrink-0' />
             )}
-            <div className='flex flex-col h-full lg:pl-4 mt-4 lg:mt-0'>
-                <div className='relative mr-auto flex flex-row w-full lg:w-full'>
+            <div className='flex flex-col lg:h-[112px] lg:w-[200px] h-full lg:h-auto lg:pl-4 mt-4 lg:mt-0'>
+                <div className='relative mr-auto flex flex-row w-full flex-start lg:w-full'>
                     {itemCard.status === 'archive' ? (
                         <span className='max-w-[90px] lg:max-w-[100%] text-primary-accent grayscale-[100%] text-[18px] md:text-[20px] text-left pr-4'>{itemCard.name}</span>
                     ) : (
-                        <span className='max-w-[90px] lg:max-w-[100%] text-primary-accent text-[18px] md:text-[20px] text-left pr-4'>{itemCard.name}</span>
+                        <span className='max-w-[90px] lg:max-w-[100%] text-primary-accent text-[18px] md:text-[20px] text-left mb-auto pr-4'>{itemCard.name}</span>
                     )}
                     <button className='bg-transparent border-none outline-none focus:outline-none p-0 ml-auto mb-auto' onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <img src={pointMoreIcon} alt="moreIcon" className='w-[24px] h-[24px] md:w-[24px] md:h-[24px]'    />

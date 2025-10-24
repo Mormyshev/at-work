@@ -8,7 +8,7 @@ import Header from './components/Header/Header.tsx'
 function App() {
 
   return (
-      <BrowserRouter>
+      <BrowserRouter basename="/at-work/">
         <div className="min-h-screen flex flex-col">
           <Header/>
           <div className='flex-1 w-full bg-primary-5'>

@@ -1,6 +1,6 @@
 import { useUserStore } from '../stores';
 import { useGetUsersQuery } from '../queries/useGetUsersQuery';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const useUsers = () => {
   const { 
@@ -8,14 +8,23 @@ export const useUsers = () => {
     currentUser, 
     loading, 
     error,
+    hasLocalChanges,
     setCurrentUser,
     updateUser,
     clearError,
     isDataLoaded,
     setUsers,
     setLoading,
-    setError
+    setError,
   } = useUserStore();
+  
+  // Используем ref для получения текущего состояния без создания зависимостей
+  const usersRef = useRef(users);
+  const hasLocalChangesRef = useRef(hasLocalChanges);
+  
+  // Обновляем refs при изменении состояния
+  usersRef.current = users;
+  hasLocalChangesRef.current = hasLocalChanges;
 
   const { 
     data: queryData, 
@@ -26,7 +35,31 @@ export const useUsers = () => {
 
   useEffect(() => {
     if (queryData) {
-      setUsers(queryData);
+      
+      // Если есть локальные изменения, не перезаписываем данные
+      if (hasLocalChangesRef.current) {
+        setLoading(false);
+        setError(null);
+        return;
+      }
+      
+      if (usersRef.current.length === 0) {
+        setUsers(queryData);
+      } else {
+        // Если данные уже есть, синхронизируем только новые пользователи
+        const mergedUsers = queryData.map((queryUser: any) => {
+          const existingUser = usersRef.current.find(user => user.id === queryUser.id);
+          if (existingUser) {
+            // Если пользователь уже есть в Zustand, сохраняем его изменения
+            return existingUser;
+          } else {
+            // Если пользователя нет в Zustand, добавляем из TanStack Query
+            return queryUser;
+          }
+        });
+        setUsers(mergedUsers);
+      }
+      
       setLoading(false);
       setError(null);
     }
