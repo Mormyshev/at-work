@@ -12,7 +12,6 @@ export const useGetUsersQuery = () => {
                 ...user,
                 status: 'active' as const
             }));
-            console.log('Пользователи с статусом:', usersWithStatus);
             return usersWithStatus;
         },
         staleTime: 5 * 60 * 1000, 

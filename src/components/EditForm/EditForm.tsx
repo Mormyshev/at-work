@@ -47,20 +47,12 @@ const EditForm = ({ currentUser, updateUser }: { currentUser: User, updateUser: 
     }, [currentUser, reset]);
 
     const onSubmit = (data: UserFormData) => {
-        console.log('🚀 onSubmit вызван с данными:', data);
-        console.log('👤 currentUser:', currentUser);
         
         if (currentUser) {
-            console.log('📝 Вызываем updateUser с:', {
-                id: currentUser.id,
-                data: data
-            });
-            
             updateUser(currentUser.id, data as Partial<UserFormData>);
-            console.log('✅ updateUser вызван');
             setShowSuccessPopup(true);
         } else {
-            console.error('❌ currentUser не найден!');
+            console.error('Пользователь не найден!');
         }
     };
 

@@ -30,8 +30,6 @@ export const useUserStore = create<UserState>((set, get) => ({
   setCurrentUser: (user) => set({ currentUser: user }),
 
   updateUser: (id, data) => {
-    console.log('🔄 updateUser вызван с:', { id, data });
-    debugger;
     
     set(state => {
       const updatedUsers = state.users.map(user => 
