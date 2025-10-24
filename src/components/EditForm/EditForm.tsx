@@ -17,7 +17,12 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const EditForm = ({ currentUser, updateUser }: { currentUser: User, updateUser: (id: number, data: Partial<UserFormData>) => void }) => {
+interface EditFormProps {
+    currentUser: User;
+    updateUser: (id: number, data: Partial<UserFormData>) => void;
+}
+
+const EditForm = ({ currentUser, updateUser }: EditFormProps) => {
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     
     const { register, handleSubmit, formState: { errors }, reset,} = useForm<FormData>({

@@ -1,6 +1,7 @@
 import { useUserStore } from '../stores';
 import { useGetUsersQuery } from '../queries/useGetUsersQuery';
 import { useEffect, useRef } from 'react';
+import type { User } from '../types/user';
 
 export const useUsers = () => {
   const { 
@@ -47,7 +48,7 @@ export const useUsers = () => {
         setUsers(queryData);
       } else {
         // Если данные уже есть, синхронизируем только новые пользователи
-        const mergedUsers = queryData.map((queryUser: any) => {
+        const mergedUsers = queryData.map((queryUser: User) => {
           const existingUser = usersRef.current.find(user => user.id === queryUser.id);
           if (existingUser) {
             // Если пользователь уже есть в Zustand, сохраняем его изменения

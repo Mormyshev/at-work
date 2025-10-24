@@ -1,7 +1,8 @@
 import CardBlock from "../CardBlock/CardBlock";
+import type { User } from '../../types/user';
 
 type HomeArchiveBlockProps = {
-    dataCards: any[]; // замените any на ваш тип, например User[]
+    dataCards: User[];
 };
 
 const HomeArchiveBlock = ({ dataCards }: HomeArchiveBlockProps) => {

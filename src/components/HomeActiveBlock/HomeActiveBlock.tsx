@@ -1,7 +1,9 @@
 import CardBlock from "../CardBlock/CardBlock";
 
+import type { User } from '../../types/user';
+
 type HomeActiveBlockProps = {
-    dataCards: any[];
+    dataCards: User[];
 };
 
 const HomeActiveBlock = ({ dataCards }: HomeActiveBlockProps) => {
