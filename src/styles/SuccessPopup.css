@@ -1,0 +1,56 @@
+@import url("const.css");
+
+.wrapper-sspp {
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+.close {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.wrapper-btn {
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  max-width: 28rem;
+  width: 100%;
+  margin-left: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 350px;
+}
+.btn-sspp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--second-color);
+  transition: color 0.2s;
+}
+.btn-sspp:hover {
+  color: var(--first-color); 
+}
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.info-wrapper {
+  text-align: center;
+}
+.info-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary-2);
+  margin-bottom: 0.5rem;
+}

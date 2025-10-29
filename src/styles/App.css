@@ -1,0 +1,10 @@
+@import url("const.css");
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  width: 100%;
+  background-color: var(--fifth-color);
+  min-height: calc(100vh - 62px);
+}

@@ -1,17 +1,38 @@
-import avatar from '../../assets/avatar.png'
+import avatar from "../../assets/avatar.png";
+import "../../styles/Edit.css";
 
 const EditLeftPanel = () => {
-    return (
-        <div className='flex flex-col sm:flex-row md:flex-col p-6 sm:p-10 md:p-4 lg:p-10 bg-primary-6 rounded-[16px] '>
-            <img src={avatar} alt="avatar" className='w-full rounded-[8px] h-[160px] sm:h-[180px] sm:w-[160px] md:w-[280px] md:h-[485px] rounded-[8px] object-cover object-center flex-shrink-0' />
-            <div className='w-full max-w-sm mx-auto sm:pl-6'>
-                <button type="button" className='w-full font-medium text-primary-1 text-left mt-4 pb-2 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-primary-4'>Данные профиля</button>
-                <button type="button" className='w-full font-medium text-primary-3 text-left mt-4 pb-2 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-primary-4 hover:text-primary-accent'>Рабочее пространство</button>
-                <button type="button" className='w-full font-medium text-primary-3 text-left mt-4 pb-2 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-primary-4 hover:text-primary-accent'>Приватность</button>
-                <button type="button" className='w-full font-medium text-primary-3 text-left mt-4 pb-2 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-primary-4 hover:text-primary-accent'>Безопасность</button>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="edit-pannel-wrapper">
+      <img src={avatar} alt="avatar" className="edit-pannel-image" />
+      <div className="edit-pannel-button-wrapper">
+        <button
+          type="button"
+          className="edit-pannel-button edit-pannel-button::after"
+        >
+          Данные профиля
+        </button>
+        <button
+          type="button"
+          className="edit-pannel-button-gray edit-pannel-button-gray::after edit-pannel-button-gray:hover"
+        >
+          Рабочее пространство
+        </button>
+        <button
+          type="button"
+          className="edit-pannel-button-gray edit-pannel-button-gray::after edit-pannel-button-gray:hover"
+        >
+          Приватность
+        </button>
+        <button
+          type="button"
+          className="edit-pannel-button-gray edit-pannel-button-gray::after edit-pannel-button-gray:hover"
+        >
+          Безопасность
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default EditLeftPanel;

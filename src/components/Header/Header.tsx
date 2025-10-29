@@ -1,15 +1,17 @@
 import HeaderAccountItems from "./HeaderAccountItems";
 import HeaderLogo from "./HeaderLogo";
+import "../../styles/Header.css";
+
 const Header = () => {
-    return (
-        <div className="bg-primary-6 w-full">
-            <div className="flex flex-row max-w-[1140px] mx-auto my-[16px] px-4">
-                <HeaderLogo/>  
-                <div className="ml-auto">
-                    <HeaderAccountItems/> 
-                </div>
-            </div>
+  return (
+    <div className="header-wrapper">
+      <div className="header-content">
+        <HeaderLogo />
+        <div className="header-account-items">
+          <HeaderAccountItems />
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 export default Header;

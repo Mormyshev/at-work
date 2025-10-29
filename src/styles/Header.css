@@ -1,0 +1,50 @@
+@import url("const.css");
+.header-wrapper {
+  background-color: var(--senary-color);
+  width: 100%;
+}
+.header-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1140px;
+  margin: 16px auto;
+  padding: 0 16px;
+}
+.header-account-items {
+  margin-left: auto;
+}
+.header-account-items-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.header-account-items-icons-container {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header-account-items-icons-container {
+    display: block;
+  }
+}
+.icons-container__button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+:focus .icons-container__button {
+  outline: none;
+}
+.header-account-block {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+.header-account-block__avatar-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+.header-account-block__avatar-text {
+  color: var(--secondary-color);
+  margin-left: 10px;
+}

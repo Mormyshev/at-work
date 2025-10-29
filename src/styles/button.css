@@ -1,0 +1,31 @@
+@import url("const.css");
+.btn {
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  background-color: var(--first-color);
+  color: var(--six-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 170px;
+  height: 46px;
+  margin-top: 1.5rem;
+  margin-right: auto;
+  cursor: pointer;
+  position: static!important;
+}
+
+.btn:hover {
+  background-color: var(--fifth-color);
+  color: var(--second-color);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

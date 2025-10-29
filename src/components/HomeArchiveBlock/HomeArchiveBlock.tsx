@@ -1,21 +1,24 @@
 import CardBlock from "../CardBlock/CardBlock";
-import type { User } from '../../types/user';
+import type { User } from "../../types/user";
+import "../../styles/Home.css";
 
 type HomeArchiveBlockProps = {
-    dataCards: User[];
+  dataCards: User[];
 };
 
 const HomeArchiveBlock = ({ dataCards }: HomeArchiveBlockProps) => {
-    return (
-        <div className="mt-8 px-4">
-            <h1 className="flex text-primary-1 text-[24px] ml-right mt-6">Архивные</h1>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-8 border-t pt-8 place-items-start">
-                {dataCards?.filter(item => item.status === 'archive').map((item, index)=>(
-                    <CardBlock key={index} itemCard={item}/>
-                ))}
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="home-block-wrapper home-block-wrapper_archive">
+      <h1 className="home-block-wrapper__title">Архивные</h1>
+      <div className="home-block-wrapper__content">
+        {dataCards
+          ?.filter((item) => item.status === "archive")
+          .map((item, index) => (
+            <CardBlock key={index} itemCard={item} />
+          ))}
+      </div>
+    </div>
+  );
+};
 
 export default HomeArchiveBlock;

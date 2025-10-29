@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
-import statusIcon from '../../assets/interface/StatusIcon.svg';
+import { useEffect } from "react";
+import statusIcon from "../../assets/interface/StatusIcon.svg";
+import "../../styles/SuccessPopup.css";
 interface SuccessPopupProps {
   isVisible: boolean;
   onClose: () => void;
@@ -20,17 +21,11 @@ const SuccessPopup = ({ isVisible, onClose }: SuccessPopupProps) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div 
-        className="absolute inset-0 bg-black bg-opacity-50"
-        onClick={onClose}
-      />
-      
-      <div className="relative bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl flex flex-col items-center justify-center h-[250px] w-[350px]">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-        >
+    <div className="wrapper-sspp">
+      <div className="close" onClick={onClose} />
+
+      <div className="wrapper-btn">
+        <button onClick={onClose} className="btn-sspp btn-sspp:hover">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -46,13 +41,11 @@ const SuccessPopup = ({ isVisible, onClose }: SuccessPopupProps) => {
           </svg>
         </button>
 
-        <div className="flex items-center justify-center mb-4">
-           <img src={statusIcon} alt="statusIcon" className="" />
+        <div className="img-wrapper">
+          <img src={statusIcon} alt="statusIcon" className="" />
         </div>
-        <div className="text-center">
-          <h3 className="text-lg font-semibold text-primary-2 mb-2">
-            Изменения сохранены!
-          </h3>
+        <div className="info-wrapper">
+          <h3 className="info-title">Изменения сохранены!</h3>
         </div>
       </div>
     </div>
