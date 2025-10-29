@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { useUserStore } from "../../stores/userStore";
+import '../../styles/DropdownMenu.css'
 
 const DropdownMenu = ({ id, status, setIsDropdownOpen }: { id: number, status: 'active' | 'archive' | 'hidden', setIsDropdownOpen: (isDropdownOpen: boolean) => void }) => {
     const handleArchive = () => {
@@ -18,12 +19,12 @@ const DropdownMenu = ({ id, status, setIsDropdownOpen }: { id: number, status: '
     }   
 
     return (
-        <div className="absolute right-[-20px] lg:right-0 top-full bg-white border-2 border-gray-200 rounded-lg shadow-lg z-10 min-w-[160px] lg:min-w-[200px]">
+        <div className="my-dropdown">
             <div className="py-1">
                 {status === 'active' && (
                     <Link to={`/edit/${id}`}>
                         <button 
-                            className="block w-full text-left px-4 py-3 text-sm text-primary-1 hover:text-primary-accent"
+                            className="my-button"
                             onClick={() => {setIsDropdownOpen(false);}}
                         >
                             Редактировать
@@ -32,14 +33,14 @@ const DropdownMenu = ({ id, status, setIsDropdownOpen }: { id: number, status: '
                 )}
                 {status === 'active' ? (
                 <button 
-                    className="block w-full text-left px-4 py-3 mt-1 text-sm text-primary-1 hover:text-primary-accent"
+                    className="my-button my-button-active"
                     onClick={handleArchive}
                 >
                     Архивировать
                 </button>
                 ) : (
                     <button 
-                        className="block w-full text-left px-4 py-3 text-sm text-primary-1 hover:text-primary-accent"
+                        className="my-button"
                         onClick={handleUnarchive}
                     >
                         Активировать
@@ -47,7 +48,7 @@ const DropdownMenu = ({ id, status, setIsDropdownOpen }: { id: number, status: '
                 )}
                 {status === 'active' && (
                     <button 
-                        className="block w-full text-left px-4 py-3 mt-1 text-sm text-primary-1 hover:text-primary-accent"
+                        className="my-button my-button-active"
                         onClick={handleHide}
                     >
                         Скрыть
